@@ -24,8 +24,14 @@ class ViewController: UIViewController {
         corectNumberText.text = ""
         
         if textField.text != "" {
-            checkTextField(random: String(arc4random_uniform(5) + 1))
-            clearTextField()
+            if Int(textField.text!)! > 0 && Int(textField.text!)! <= 5 {
+                checkTextField(random: String(arc4random_uniform(5) + 1))
+                clearTextField()
+            } else {
+                labelField.text = "Guess the number"
+                labelField.textColor = UIColor.black
+                corectNumberText.text = "Please enter number from the range."
+            }
         } else {
             labelField.text = "Guess the number"
             labelField.textColor = UIColor.black
